@@ -59,7 +59,7 @@ const SeriesListScreen = () => {
       />
       <FlatList
         data={seriesList}
-        numColumns={3}
+        numColumns={2}
         contentContainerStyle={{ alignItems: "center" }}
         onEndReached={() =>
           searchText.length > 0 ? () => {} : loadSeries(true)

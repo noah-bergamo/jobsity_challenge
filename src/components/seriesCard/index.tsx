@@ -7,7 +7,7 @@ import { useNavigation } from "@react-navigation/native";
 import { SeriesStackParamList } from "../../navigation/homeStack";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import * as S from "./styles";
-import { Text } from "react-native";
+
 interface ISeriesCardProps {
   serie: ISerie;
 }
@@ -51,20 +51,11 @@ const SeriesCard: FC<ISeriesCardProps> = ({ serie }) => {
           color={favorite ? Colors.PRIMARY : Colors.WHITE}
         />
       </S.FavoriteContainer>
-      <S.Image
-        source={{ uri: serie.imageURL }}
-        resizeMode="contain"
-        resizeMethod="resize"
-      />
+      <S.ImageContainer>
+        <S.Image source={{ uri: serie.imageURL }} />
+      </S.ImageContainer>
       <S.TitleContainer>
-        <Text
-          style={{
-            textAlign: "center",
-            fontWeight: "bold",
-          }}
-        >
-          {serie.name}
-        </Text>
+        <S.StyledText numberOfLines={2}>{serie.name}</S.StyledText>
       </S.TitleContainer>
     </S.Container>
   );
