@@ -46,7 +46,7 @@ const useSeriesData = () => {
   };
 
   const loadSerieEpisodesInfo = async (seasonID: number) => {
-    const url = `/seasons/${seasonID}`;
+    const url = `/seasons/${seasonID}/episodes`;
     try {
       const resp = await api.get(url);
       return resp.data;

@@ -1,18 +1,15 @@
-import { View, FlatList } from "react-native";
+import { FlatList } from "react-native";
 import React, { useEffect, useState } from "react";
-import { Colors } from "../../utils/colors";
 
 import useSeriesData from "../../hooks/useSeriesData";
 import SeriesCard from "../../components/seriesCard";
 import SearchInput from "../../components/searchInput";
 import { formatSeriesData } from "../../utils/formatters";
 import Loading from "../../components/loading";
-
+import * as S from "./styles";
 export interface ISerie {
   id: number;
-  url: string;
   name: string;
-  language: string;
   genres: string[];
   imageURL: string;
   summary: string;
@@ -54,7 +51,7 @@ const SeriesListScreen = () => {
   };
 
   return (
-    <View style={{ flex: 1, backgroundColor: Colors.BLACK }}>
+    <S.Container>
       <SearchInput
         onChangeText={(text) => setSearchText(text)}
         value={searchText}
@@ -70,7 +67,7 @@ const SeriesListScreen = () => {
         renderItem={({ item }) => <SeriesCard serie={item} />}
       />
       <Loading loading={loading} />
-    </View>
+    </S.Container>
   );
 };
 

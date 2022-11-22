@@ -1,20 +1,15 @@
-import { View, Text, FlatList } from "react-native";
+import { FlatList } from "react-native";
 import React, { useContext } from "react";
 import { FavoriteContext } from "../../contexts/FavoriteContext";
 import SeriesCard from "../../components/seriesCard";
+import * as S from "./styles";
+import Text from "../../components/text";
 
 const FavoritesListScreen = () => {
   const { favorites } = useContext(FavoriteContext);
 
   return (
-    <View
-      style={{
-        flex: 1,
-        backgroundColor: "#111",
-        paddingTop: 80,
-        paddingLeft: 16,
-      }}
-    >
+    <S.Container>
       {favorites.length > 0 ? (
         <FlatList
           data={favorites}
@@ -22,11 +17,11 @@ const FavoritesListScreen = () => {
           numColumns={3}
         />
       ) : (
-        <Text style={{ color: "white", fontSize: 16, marginTop: 40 }}>
-          There's no favorite series
-        </Text>
+        <S.PlaceholderContainer>
+          <Text>There's no favorite series</Text>
+        </S.PlaceholderContainer>
       )}
-    </View>
+    </S.Container>
   );
 };
 

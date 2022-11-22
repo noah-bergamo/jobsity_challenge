@@ -34,7 +34,11 @@ export default function HomeStack() {
   return (
     <Tab.Navigator screenOptions={{ headerShown: false }}>
       <Tab.Screen name="Series" component={SeriesStack} />
-      <Tab.Screen name="Favorites" component={FavoritesListScreen} />
+      <Tab.Screen
+        name="Favorites"
+        component={FavoritesListScreen}
+        options={{ headerShown: true }}
+      />
       <Tab.Screen name="Settings" component={SettingsScreen} />
     </Tab.Navigator>
   );
